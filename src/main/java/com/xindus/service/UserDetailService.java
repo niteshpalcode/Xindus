@@ -6,12 +6,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.xindus.entity.User;
 
-public interface UserService  extends UserDetailsService{
-	
-	 
-	  User signUp(User user);
+public interface UserDetailService extends UserDetailsService {
 
-		UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
-	 
+	User signUp(User user);
+
+	UserDetails loadUserByUsername(String username) throws UsernameNotFoundException;
+
+	boolean existsByUsername(String username);
+
+	boolean login(String username, String password); 
 
 }
